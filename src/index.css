@@ -1,0 +1,185 @@
+:root {
+  --ui-bg: #15171b;
+  --ui-panel: #1e2128;
+  --ui-line: #2e323b;
+  --ui-text: #e7e9ee;
+  --ui-muted: #9aa1ae;
+  --ui-accent: #4da3ff;
+
+  font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ui-bg);
+  color: var(--ui-text);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  height: 100%;
+}
+
+.app.panel-hidden {
+  grid-template-columns: 1fr;
+}
+
+/* --- Bühne mit dem 1080×1920-Screen --- */
+.stage-area {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #22262e 0%, #15171b 70%);
+}
+
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  background: #000;
+}
+
+.map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.stage-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ui-muted);
+  pointer-events: none;
+}
+
+kbd {
+  background: #2b2f38;
+  border: 1px solid var(--ui-line);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+/* --- Panel --- */
+.panel {
+  background: var(--ui-panel);
+  border-left: 1px solid var(--ui-line);
+  padding: 18px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel h1 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.hint {
+  margin: -6px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.control-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ui-muted);
+}
+
+.control-label b {
+  color: var(--ui-text);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+select {
+  background: #262a32;
+  color: var(--ui-text);
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  padding: 7px 8px;
+  font-size: 12px;
+}
+
+input[type='range'] {
+  width: 100%;
+  accent-color: var(--ui-accent);
+}
+
+.panel-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+button {
+  flex: 1;
+  background: var(--ui-accent);
+  color: #08121d;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--ui-muted);
+  border: 1px solid var(--ui-line);
+}
+
+.config-preview {
+  margin: 0;
+  background: #14161b;
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+  overflow-x: auto;
+}
+
+/* MapLibre-Attribution dezent halten */
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+}
